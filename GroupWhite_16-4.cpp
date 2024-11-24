@@ -1,3 +1,11 @@
+/******************************************************************************
+Instructor: Prof. Charlesvester Wims
+Course: CS 109
+Assignment: Module 6-7 Lab (Final) -- Chapter 16, Problem 4
+Date: November 23, 2024
+Group White (Bruce D., Mikaela P., Savalas P., Kanisha W.)
+*******************************************************************************/
+
 #include <iostream>
 #include <string>
 #include <cctype>
