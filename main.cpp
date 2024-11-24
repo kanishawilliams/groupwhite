@@ -125,14 +125,6 @@ public:
         }
     }
 
-    // Method to retrieve a room by its index
-    Room& getRoom(int roomIndex) {
-        // Error handling: Check if roomIndex is within bounds
-        if (roomIndex < 0 || roomIndex >= numRooms) {
-            throw std::out_of_range("Invalid room index"); 
-        }
-        return rooms[roomIndex]; 
-    }
 };
 
 // Class to represent a building
