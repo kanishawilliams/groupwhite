@@ -16,6 +16,14 @@ using namespace std;
 enum monthOn { January, February, March, April, May, June, 
                 July, August, September, October, November, December };
 
+// Overload the extraction operator for monthOn type
+istream& operator>>(istream& in, monthOn& month) {
+    int monthInt;
+    in >> monthInt;
+    month = static_cast<monthOn>(monthInt);
+    return in;
+}
+
 // Class to represent a network access point
 class NetworkAccessPoint {
 private:
@@ -124,6 +132,18 @@ public:
         } else {
             throw out_of_range("Invalid room index.");
         }
+    }
+
+    // Mutator method
+    void addRoom(int accessPointsPerRoom) {
+        Room** temp = new Room*[numRooms + 1];
+        for (int i = 0; i < numRooms; ++i) {
+            temp[i] = rooms[i];
+        }
+        temp[numRooms] = new Room(accessPointsPerRoom);
+        delete[] rooms;
+        rooms = temp;
+        numRooms++;
     }
 };
 
