@@ -11,6 +11,7 @@ Group White (Bruce D., Mikaela P., Savalas P., Kanisha W.)
 #include <string>
 #include <set>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -61,7 +62,11 @@ int main() {
             string details;
             istringstream iss(line);
             iss >> licenseNumber;
-            getline(iss, details);
+            getline(iss >> ws, details); // Using ws to skip leading whitespace
+            if (iss.fail()) {
+                cerr << "Error reading license number or details from line: " << line << endl;
+                continue;
+            }
             LicenseRecord record = { licenseNumber, details };
             sortedList.addRecord(record);
         }
